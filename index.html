@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사회정서교육 지원 - 16주 마음챙김 영상 모음</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F6F4;
+    --paper:#FFFFFF;
+    --ink:#2B3634;
+    --ink-soft:#5B6A66;
+    --line:#DEE5E1;
+    --mist:#7C97A0;
+
+    --s1:#7FA487;  --s1-bg:#E8F0E9;  --s1-line:#C7DBC9;
+    --s2:#C08A85;  --s2-bg:#F6E9E7;  --s2-line:#E4C7C3;
+    --s3:#B98F45;  --s3-bg:#F3ECDD;  --s3-line:#E3D2AC;
+    --s4:#6E7FA3;  --s4-bg:#E9ECF3;  --s4-line:#C7CEE0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:400;
+    line-height:1.7;
+  }
+  h1,h2,h3,.serif{ font-family:'Song Myung', 'Noto Sans KR', serif; font-weight:400; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 24px 72px;
+    text-align:center;
+    overflow:hidden;
+    background:linear-gradient(180deg,#EEF3F0 0%, var(--bg) 100%);
+  }
+  .breath{
+    width:120px;height:120px;
+    margin:0 auto 36px;
+    border-radius:50%;
+    border:1.5px solid var(--mist);
+    position:relative;
+  }
+  .breath::before{
+    content:"";
+    position:absolute; inset:18px;
+    border-radius:50%;
+    background:rgba(124,151,160,0.18);
+    animation:breathe 8s ease-in-out infinite;
+  }
+  .breath span{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; letter-spacing:.14em; color:var(--ink-soft);
+  }
+  @keyframes breathe{
+    0%,100%{ transform:scale(0.72); opacity:.5; }
+    50%{ transform:scale(1.35); opacity:1; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .breath::before{ animation:none; transform:scale(1.05); }
+  }
+  .eyebrow{
+    font-size:13px; letter-spacing:.18em; color:var(--mist); text-transform:uppercase; margin-bottom:14px;
+  }
+  .hero h1{ font-size:clamp(28px,5vw,44px); margin:0 0 16px; color:var(--ink); }
+  .hero p.lead{
+    max-width:520px; margin:0 auto; color:var(--ink-soft); font-size:15.5px;
+  }
+
+  /* ---------- NAV ---------- */
+  .monthnav{
+    position:sticky; top:0; z-index:20;
+    background:rgba(244,246,244,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    display:flex; justify-content:center; gap:6px;
+    padding:12px 16px; flex-wrap:wrap;
+  }
+  .monthnav a{
+    font-size:13.5px; color:var(--ink-soft); text-decoration:none;
+    padding:7px 14px; border-radius:20px; border:1px solid transparent;
+  }
+  .monthnav a:hover, .monthnav a:focus-visible{ border-color:var(--line); color:var(--ink); }
+
+  .wrap{ max-width:760px; margin:0 auto; padding:0 20px; }
+
+  /* ---------- WHY / RATIONALE ---------- */
+  .why{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:32px 28px;
+    margin:56px auto 0;
+  }
+  .why h2{ font-size:20px; margin:0 0 12px; }
+  .why > p{ color:var(--ink-soft); font-size:14.5px; margin:0 0 24px; }
+
+  .arc{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+  }
+  .arc-step{
+    border-radius:12px; padding:16px 14px; font-size:13px;
+    border:1px solid var(--line);
+  }
+  .arc-step .m{ font-family:'Song Myung',serif; font-size:15px; margin-bottom:6px; display:block; }
+  .arc-step p{ margin:0; color:var(--ink-soft); font-size:12.5px; line-height:1.55; }
+  .arc-step:nth-child(1){ background:var(--s1-bg); border-color:var(--s1-line); }
+  .arc-step:nth-child(2){ background:var(--s2-bg); border-color:var(--s2-line); }
+  .arc-step:nth-child(3){ background:var(--s3-bg); border-color:var(--s3-line); }
+  .arc-step:nth-child(4){ background:var(--s4-bg); border-color:var(--s4-line); }
+  @media (max-width:600px){ .arc{ grid-template-columns:1fr 1fr; } }
+
+  .note{
+    margin-top:22px; padding-top:18px; border-top:1px dashed var(--line);
+    font-size:12.5px; color:var(--ink-soft);
+  }
+
+  /* ---------- MONTH SECTIONS ---------- */
+  .month{ padding-top:64px; scroll-margin-top:70px; }
+  .month-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:6px; }
+  .month-head h2{ font-size:24px; margin:0; }
+  .stage-tag{
+    font-size:11.5px; padding:4px 11px; border-radius:20px; letter-spacing:.02em;
+  }
+  .month[data-stage="1"] .stage-tag{ background:var(--s1-bg); color:var(--s1); border:1px solid var(--s1-line); }
+  .month[data-stage="2"] .stage-tag{ background:var(--s2-bg); color:var(--s2); border:1px solid var(--s2-line); }
+  .month[data-stage="3"] .stage-tag{ background:var(--s3-bg); color:var(--s3); border:1px solid var(--s3-line); }
+  .month[data-stage="4"] .stage-tag{ background:var(--s4-bg); color:var(--s4); border:1px solid var(--s4-line); }
+  .month-sub{ color:var(--ink-soft); font-size:13.5px; margin:0 0 26px; }
+
+  .cards{ display:flex; flex-direction:column; gap:14px; margin-bottom:8px; }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 22px;
+    display:flex; gap:16px;
+  }
+  .num{
+    flex:0 0 auto; width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; color:var(--paper); font-weight:500;
+  }
+  .month[data-stage="1"] .num{ background:var(--s1); }
+  .month[data-stage="2"] .num{ background:var(--s2); }
+  .month[data-stage="3"] .num{ background:var(--s3); }
+  .month[data-stage="4"] .num{ background:var(--s4); }
+
+  .card-body{ flex:1; min-width:0; }
+  .card-top{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:6px; }
+  .week{ font-size:12px; color:var(--ink-soft); }
+  .badge{
+    font-size:11.5px; padding:2px 9px; border-radius:20px; border:1px solid var(--line); color:var(--ink-soft);
+  }
+  .badge.trim{ color:#9A6B33; border-color:#E3D2AC; background:#FBF6EC; }
+  .badge.full{ color:#4E7D57; border-color:#C7DBC9; background:#F1F6F2; }
+
+  .card h3{ margin:2px 0 6px; font-size:16.5px; font-weight:500; font-family:'Noto Sans KR'; }
+  .card .desc{ font-size:13.5px; color:var(--ink-soft); margin:0 0 10px; }
+  .card .say{
+    font-size:13px; color:var(--ink); background:var(--bg);
+    border-left:2px solid var(--line); padding:8px 12px; border-radius:0 8px 8px 0; margin:0 0 12px;
+    font-style:italic;
+  }
+  .card a.watch{
+    font-size:13px; text-decoration:none; color:var(--mist); border:1px solid var(--s4-line);
+    padding:6px 13px; border-radius:20px; display:inline-block;
+  }
+  .card a.watch:hover, .card a.watch:focus-visible{ background:var(--s4-bg); }
+
+  footer{
+    text-align:center; color:var(--ink-soft); font-size:12.5px;
+    padding:70px 20px 60px;
+  }
+  footer p{ margin:4px 0; }
+
+  /* ---------- INTRO NOTE ---------- */
+  .intro-note{
+    max-width:640px; margin:0 auto 8px;
+    background:var(--s4-bg); border:1px solid var(--s4-line);
+    border-radius:14px; padding:18px 22px;
+  }
+  .intro-note p{
+    margin:0; font-size:13.5px; color:var(--ink); line-height:1.75;
+  }
+  .intro-note strong{ color:var(--s4); font-weight:500; }
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="breath"><span>들숨 · 날숨</span></div>
+  <div class="eyebrow">주 1회 아침 조회 사회정서교육 자료</div>
+  <h1>한 주에 한 번, 5분의 숨</h1>
+  <p class="lead">1주차부터 16주차까지, 주 1회 아침 조회 시간에 바로 활용할 수 있는<br>
+  짧은 마음챙김 영상과 한 문장씩 담은 한마디를 모았습니다.</p>
+</header>
+
+<div class="wrap">
+  <div class="intro-note">
+    <p>사회정서교육이나 명상 분야의 전문가는 아닙니다. 다만 학생들의 사회정서교육에 조금이나마 도움이 되었으면 하는 마음으로,
+    부족한 점이 있을 수 있음에도 용기 내어 자료를 찾아 정리해보았습니다.</p>
+  </div>
+</div>
+
+<nav class="monthnav">
+  <a href="#why">왜 이 순서일까요</a>
+  <a href="#w1">1~4주차 · 기초</a>
+  <a href="#w2">5~8주차 · 감정조절</a>
+  <a href="#w3">9~12주차 · 관계·자존감</a>
+  <a href="#w4">13~16주차 · 성찰·성장</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="why" id="why">
+    <h2>🌱 왜 이 순서일까요?</h2>
+    <p>16주의 영상은 무작위로 나열된 것이 아니라, 나에게서 시작해 점점 주변으로 넓어지는 순서를 따르고 있습니다.
+    감정이나 관계를 곧바로 다루기보다, 먼저 ‘지금 내 몸과 숨을 알아차리는 연습’으로 시작해 점점 더 깊은 이야기로 넓혀갑니다.</p>
+
+    <div class="arc">
+      <div class="arc-step">
+        <span class="m">1~4주차 · 기초</span>
+        <p>숨과 몸의 감각에 익숙해지기. 감정을 다루기 전, 먼저 ‘지금 이 순간’에 머무는 연습부터 시작합니다.</p>
+      </div>
+      <div class="arc-step">
+        <span class="m">5~8주차 · 감정조절</span>
+        <p>스트레스·화·불안 다루기. 기초가 잡힌 뒤에야 감정의 파도를 한 발 떨어져 바라볼 여유가 생깁니다.</p>
+      </div>
+      <div class="arc-step">
+        <span class="m">9~12주차 · 관계·자존감</span>
+        <p>나를 아끼고 타인을 이해하기. 내 마음이 편안해진 뒤에야 비로소 타인에게 마음을 열 수 있습니다.</p>
+      </div>
+      <div class="arc-step">
+        <span class="m">13~16주차 · 성찰·성장</span>
+        <p>학기말을 돌아보기. 그동안 쌓아온 연습을 바탕으로 감사와 자신감으로 학기를 차분히 마무리합니다.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      ※ 16개 영상 모두 실제로 존재하는지, 제목·내용이 설명과 일치하는지 하나씩 확인한 뒤 정리했습니다.
+      5분을 넘는 영상에는 <strong>‘몇 분까지 재생하면 좋을지’</strong> 안내를 함께 표시했습니다.
+    </div>
+  </section>
+
+  <!-- 1~4주차 -->
+  <section class="month" id="w1" data-stage="1">
+    <div class="month-head"><h2>1~4주차 · 기초 적응</h2><span class="stage-tag">숨과 몸 감각 느끼기</span></div>
+    <p class="month-sub">명상을 처음 접하는 학생들이 부담 없이 숨을 고르고 신체 감각을 깨우는 단계입니다.</p>
+    <div class="cards">
+
+      <div class="card">
+        <div class="num">1</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">1주차</span><span class="badge full">전체 재생 · 3분 42초</span></div>
+          <h3>기초 호흡 — 명상이 필요할 때, 3분 호흡 명상 가이드</h3>
+          <p class="desc">숨의 길이가 짧은지 긴지 그저 알아차리기만 하면 충분한, 가장 쉬운 호흡 명상입니다.</p>
+          <p class="say">“일부러 애쓰지 않아도 괜찮아요. 지금 내가 숨쉬고 있다는 것, 그것만 알아차려봅시다.”</p>
+          <a class="watch" href="https://youtu.be/QVk2NTN8Gig" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">2</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">2주차</span><span class="badge full">전체 재생 · 5분</span></div>
+          <h3>내 몸 느껴보기 명상 (Body Scan)</h3>
+          <p class="desc">정수리부터 발끝까지, 신체 부위의 긴장을 하나씩 풀어주는 내 몸 느껴보기 명상입니다.</p>
+          <p class="say">“어깨와 목에 들어간 힘을 빼고, 내 몸이 보내는 신호에 귀 기울여 볼까요?”</p>
+          <a class="watch" href="https://youtu.be/DC9Cjq3G_nI" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">3</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">3주차</span><span class="badge full">전체 재생 · 5분</span></div>
+          <h3>교실 분위기를 바꾸는, 학생을 위한 5분 호흡 명상</h3>
+          <p class="desc">짧은 안내를 따라가며 교실 분위기를 차분하게 가라앉히고, 스스로 호흡을 조절하는 습관을 들입니다.</p>
+          <p class="say">“천천히 숨을 들이마시고 내쉬며, 우리 교실의 공기를 편안하게 가라앉혀 봅시다.”</p>
+          <a class="watch" href="https://youtu.be/LX3Kmr3s4gg" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">4</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">4주차</span><span class="badge full">전체 재생 · 4분 03초</span></div>
+          <h3>내 마음 관찰하기 — 3분 마보</h3>
+          <p class="desc">소리, 몸의 감각, 호흡을 있는 그대로 느끼고, 마음이 흐트러지면 다시 호흡으로 돌아오는 연습입니다.</p>
+          <p class="say">“지금 내 호흡이 빠른지 느린지, 애쓰지 말고 있는 그대로 느껴봅시다.”</p>
+          <a class="watch" href="http://www.youtube.com/watch?v=zCpNnO7DyWY" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5~8주차 -->
+  <section class="month" id="w2" data-stage="2">
+    <div class="month-head"><h2>5~8주차 · 감정 조절</h2><span class="stage-tag">스트레스·감정 다스리기</span></div>
+    <p class="month-sub">학업과 친구 관계에서 오는 스트레스와 부정적 감정을 건강하게 전환하는 단계입니다.</p>
+    <div class="cards">
+
+      <div class="card">
+        <div class="num">5</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">5주차</span><span class="badge full">전체 재생 · 4분 48초</span></div>
+          <h3>잠시 생각해보기 — Hey! Think 명상</h3>
+          <p class="desc">지금 내 호흡과 느낌, 감정과 생각이 무엇을 원하는지 잠시 멈춰 스스로에게 물어보는 마음챙김 프로그램입니다.</p>
+          <p class="say">“잠깐 멈춰서, 지금 내 마음이 정말 원하는 게 뭔지 스스로에게 물어봅시다.”</p>
+          <a class="watch" href="http://www.youtube.com/watch?v=qngj13R8Ie4" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">6</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">6주차</span><span class="badge full">전체 재생 · 3분 37초</span></div>
+          <h3>평온함 되찾기 — 평온한 마음 고요한 마음</h3>
+          <p class="desc">자극에 무조건 반응하지 않고 마음의 균형을 되찾는 청소년 맞춤 명상입니다.</p>
+          <p class="say">“마음이 흔들릴 때 다시 평온함으로 돌아오는 중심을 잡아봅시다.”</p>
+          <a class="watch" href="http://www.youtube.com/watch?v=0iDotgTWrXU" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">7</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">7주차</span><span class="badge trim">앞 5분 20초까지 재생 · 전체 8분 54초</span></div>
+          <h3>불안·시험 스트레스 완화 — 인사이드 아웃 명상</h3>
+          <p class="desc">내 마음을 하늘로, 감정을 지나가는 구름으로 떠올리며 있는 그대로 바라보는 명상입니다. 짜증, 부끄러움, 슬픔 같은 감정도 날씨처럼 자연스럽게 지나간다는 것을 느껴봅니다. (경기도청소년상담복지센터 제작)</p>
+          <p class="say">“구름이 가득해도 날씨는 언제나 바뀌듯이, 지금 내 마음속 감정도 그저 지나가는 구름처럼 바라봐 줍시다.”</p>
+          <a class="watch" href="http://www.youtube.com/watch?v=h9yzjsgbTB0" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">8</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">8주차</span><span class="badge trim">앞 5분 36초까지 재생 · 전체 9분 21초</span></div>
+          <h3>집중력 향상 — 성적쑥쑥 집중 명상</h3>
+          <p class="desc">산만한 마음을 가라앉히고 하나의 대상에 집중하는 몰입 감각을 키웁니다.</p>
+          <p class="say">“흩어진 생각들을 하나로 모아 오늘 하루에 집중하는 힘을 만들어봅시다.”</p>
+          <a class="watch" href="http://www.youtube.com/watch?v=Tkk2pp0qNbk" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9~12주차 -->
+  <section class="month" id="w3" data-stage="3">
+    <div class="month-head"><h2>9~12주차 · 자아존중 & 관계</h2><span class="stage-tag">나를 사랑하고 타인 이해하기</span></div>
+    <p class="month-sub">자존감을 높이고 친구·주변 사람들과 긍정적인 관계를 맺도록 돕는 단계입니다.</p>
+    <div class="cards">
+
+      <div class="card">
+        <div class="num">9</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">9주차</span><span class="badge full">전체 재생 · 5분</span></div>
+          <h3>나를 사랑하는 방법, 자애명상</h3>
+          <p class="desc">나 자신을 세상에 하나뿐인 귀한 존재로 인정하고, 고마운 사람을 떠올리며 나와 그 사람 모두의 행복을 바라는 마음을 전하는 자애 명상입니다.</p>
+          <p class="say">“나는 지금 이대로 사랑받을 가치가 충분한 사람입니다. 오늘은 나와 내가 아끼는 사람의 행복을 마음속으로 빌어봅시다.”</p>
+          <a class="watch" href="https://youtu.be/8eXdDS7HVP0" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">10</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">10주차</span><span class="badge full">전체 재생 · 5분 35초</span></div>
+          <h3>나를 위한 용서 명상 — 마음의 매듭 풀기</h3>
+          <p class="desc">힘들었던 순간의 나를 다정하게 바라보며, 마음속 매듭 같은 감정을 하나씩 풀어주는 용서 명상입니다.</p>
+          <p class="say">“그때의 나도 최선을 다했어요. ‘괜찮아, 이제 놓아줘도 돼’라고 마음속으로 말해봅시다.”</p>
+          <a class="watch" href="https://youtu.be/9c-p1uXv-rI" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">11</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">11주차</span><span class="badge full">전체 재생 · 5분</span></div>
+          <h3>연민으로 따뜻한 나 — K-청소년 하루명상 Ep.07</h3>
+          <p class="desc">힘들어하는 친구를 마음으로 위로해주고, 그 따뜻한 마음을 나 자신에게도 똑같이 건네보는 명상입니다.</p>
+          <p class="say">“힘든 친구 곁에 앉아 손을 잡아주듯, 오늘은 나 자신에게도 ‘많이 힘들었지, 내가 네 곁에 있을게’라고 말해줍시다.”</p>
+          <a class="watch" href="https://youtu.be/Qvbs1-GMBK0" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">12</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">12주차</span><span class="badge full">전체 재생 · 4분 58초</span></div>
+          <h3>함께 이어진 우리 — K-청소년 5분명상 Ep.19</h3>
+          <p class="desc">가족, 친구, 선생님과 나눈 작은 배려와 도움들이 보이지 않는 실처럼 서로를 연결하고 있음을 느껴보는 명상입니다.</p>
+          <p class="say">“나는 혼자가 아니에요. 우리는 서로에게 힘이 되는 존재라는 걸 마음속으로 느껴봅시다.”</p>
+          <a class="watch" href="https://youtu.be/SQyMjRlVBjU" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 13~16주차 -->
+  <section class="month" id="w4" data-stage="4">
+    <div class="month-head"><h2>13~16주차 · 성찰 & 성장</h2><span class="stage-tag">학기말 돌아보기 · 마무리</span></div>
+    <p class="month-sub">학기말을 성찰하고 감사와 자신감을 담아 마무리하는 단계입니다.</p>
+    <div class="cards">
+
+      <div class="card">
+        <div class="num">13</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">13주차</span><span class="badge full">전체 재생 · 4분 48초</span></div>
+          <h3>인생을 바꾸는 가장 쉬운 방법, 감사 명상</h3>
+          <p class="desc">공기, 햇빛, 부모님, 친구, 선생님, 그리고 나 자신까지 — 우리를 둘러싼 고마운 존재들을 하나씩 떠올려보는 감사 명상입니다.</p>
+          <p class="say">“오늘 하루, 나를 도와준 고마운 사람들과 나 자신에게 ‘고마워’라고 말해봅시다.”</p>
+          <a class="watch" href="https://youtu.be/b3zPGRKzSDo" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">14</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">14주차</span><span class="badge trim">앞 5분만 재생 · 전체 6분 09초</span></div>
+          <h3>5분 호흡명상 — 뇌를 위한 최고의 휴식법</h3>
+          <p class="desc">학교생활과 공부로 지친 뇌와 마음에 잠시 휴식을 선물합니다.</p>
+          <p class="say">“지친 마음과 머릿속을 깨끗하게 비워내고 정돈하는 시간입니다.”</p>
+          <a class="watch" href="http://www.youtube.com/watch?v=TGoAN5L_oPI" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">15</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">15주차</span><span class="badge full">전체 재생 · 4분 33초</span></div>
+          <h3>낙관적 사고 — K-청소년 5분명상 Ep.14</h3>
+          <p class="desc">힘들었던 순간을 떠올려 그때의 나를 다정하게 토닥여주고, 그 어려움 속에서도 나를 지켜준 작은 위로와 용기를 발견하는 명상입니다.</p>
+          <p class="say">“그때 정말 힘들었지만 잘 버텨준 나에게 고맙다고 말해봅시다. 어둠 속에서도 빛은 늘 있었어요.”</p>
+          <a class="watch" href="https://youtu.be/vV_YIhEJDbY" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="num">16</div>
+        <div class="card-body">
+          <div class="card-top"><span class="week">16주차</span><span class="badge full">전체 재생 · 3분 58초</span></div>
+          <h3>나는 내 자신을 믿어 — K-청소년 5분명상 Ep.19</h3>
+          <p class="desc">자랑스러웠던 순간과 이루고 싶은 목표를 떠올리며, “나는 나를 믿어”라는 다짐으로 스스로를 응원하는 명상입니다.</p>
+          <p class="say">“작은 목표를 하나씩 이뤄가며 자신감을 채워온 여러분, 정말 잘하고 있습니다.”</p>
+          <a class="watch" href="https://youtu.be/rLIh9kRA2HE" target="_blank" rel="noopener">영상 보기 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  <p>늘 학급 경영과 학생 지도에 마음 쓰시는 선생님들의 노고에 깊이 감사드립니다.</p>
+  <p>이 5분의 시간이 선생님과 학급 아이들 모두에게 고요한 응원이 되기를 바랍니다.</p>
+</footer>
+
+</body>
+</html>
